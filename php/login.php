@@ -12,7 +12,7 @@ $userQuery =
 		users
 	WHERE
 		userName = '".mysql_escape_string($_POST['user'])."' AND
-		userPass = '".mysql_escape_string($_POST['pass'])."'";
+		userPass = '".mysql_escape_string(md5($_POST['pass']))."'";
 $userList = mysql_query($userQuery,$conexion);
 $userCount = mysql_num_rows($userList);
 if($userCount==0)
